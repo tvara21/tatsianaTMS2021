@@ -7,8 +7,9 @@ public class Homework4 {
         for (int i = 0; i < count; i++) {
             if (mass[i] > max) {
                 max = mass[i];
-                System.out.println(max);
             }
         }
+
+        System.out.println(max);
     }
 }
