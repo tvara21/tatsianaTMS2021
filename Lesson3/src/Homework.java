@@ -1,4 +1,7 @@
-import java.util.Arrays;
+//import java.util.Arrays;
+
+import java.util.Random;
+import java.util.Scanner;
 
 public class Homework {
 
@@ -26,15 +29,33 @@ public class Homework {
      * далее вывести массив на консоль
      */
     private static void printArray() {
-        int size = 7;
-        int[] array = new int[size];
-        int min = -100;
-        int max = 2000;
-        int range = max - min + 1;
-        for (int i = 0; i < size; i++) {
-            array[i] = ((int) (Math.random() * range) + min);
+//        int size = 7;
+//        int[] array = new int[size];
+//        int min = -100;
+//        int max = 2000;
+//        int range = max - min + 1;
+//        for (int i = 0; i < size; i++) {
+//            array[i] = ((int) (Math.random() * range) + min);
+//        }
+//        System.out.println("Задание 1: " + Arrays.toString(array));
+        Scanner scanner = new Scanner(System.in);
+        int number;
+        do {
+            System.out.println("Введите положительное целое число");
+            while (!scanner.hasNextInt()) {
+                System.out.println("Это не целое число!!!");
+                scanner.next();
+            }
+            number = scanner.nextInt();
+        } while (number <= 0);
+
+        int[] array = new int[number];
+        Random random = new Random();
+        for (int i = 0; i < array.length; i++) {
+            array[i] = random.nextInt(10000);
+            System.out.print(array[i] + " ");
         }
-        System.out.println("Задание 1: " + Arrays.toString(array));
+        System.out.println();
     }
 
     /**
@@ -48,8 +69,7 @@ public class Homework {
     public static int operation(int number) {
         if (number > 0) {
             return ++number;
-        }
-        if (number < 0) {
+        } else if (number < 0) {
             return number - 2;
         } else {
             return 10;
@@ -65,8 +85,8 @@ public class Homework {
     public static int calculateCountOfOddElementsInMatrix(int[] ints) {
         int count = 0;
         for (int i = 0; i < ints.length; i++) {
-            if (ints[i] % 2 == 0) {
-                count = ++count;
+            if (ints[i] % 2 != 0) {
+                count = count++;
             }
         }
         return count;
