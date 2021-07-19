@@ -9,12 +9,16 @@ import java.util.Scanner;
 @Setter
 @Getter
 
+
 public class Computer {
     private String processor;
     private int ram;
     private int hdd;
     private int limitOnOff;
+
     private int countOnOff;
+    private Scanner console = new Scanner(System.in);
+    private Random random = new Random();
 
     public Computer(String processor, int ram, int hdd, int limitOnOff) {
         this.processor = processor;
@@ -22,9 +26,6 @@ public class Computer {
         this.hdd = hdd;
         this.limitOnOff = limitOnOff;
     }
-
-    Scanner console = new Scanner(System.in);
-    Random random = new Random();
 
     public void description() {
         System.out.println("процессор: " + processor);
@@ -34,7 +35,7 @@ public class Computer {
 
     }
 
-    private boolean ok() {
+    private boolean check() {
         int user = console.nextInt();
         int rand = random.nextInt(2);
         System.out.println("check: " + rand);
@@ -44,7 +45,7 @@ public class Computer {
 
     public void on() {
         System.out.println("ON: Внимание! Введите 0 или 1");
-        if (ok()) {
+        if (check()) {
             off();
         } else {
             System.out.println("Компьютер сгорел!");
@@ -56,7 +57,7 @@ public class Computer {
         System.out.println("OFF: Внимание! Введите 0 или 1");
         countOnOff++;
 
-        if (ok() && countOnOff < limitOnOff) {
+        if (check() && countOnOff < limitOnOff) {
             on();
         } else {
             System.out.println("Компьютер сгорел!");
