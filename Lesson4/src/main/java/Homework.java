@@ -1,5 +1,3 @@
-import org.w3c.dom.ls.LSOutput;
-
 import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
@@ -7,49 +5,36 @@ import java.util.Scanner;
 public class Homework {
     public static void main(String[] args) {
 
-//        System.out.println("Задача 1\n********");
-//        ameba();
+        System.out.println("Задача 1\n********");
+        ameba();
 
-//        System.out.println("\nЗадача 2\n********");
-//        System.out.println(summ(8, 6));
-//        System.out.println(summ(7, 3));
-//        System.out.println(summ(3, -1));
-//        System.out.println();
+        System.out.println("\nЗадача 2\n********");
+        System.out.println(summ(8, 6));
+        System.out.println(summ(7, 3));
+        System.out.println(summ(3, -1));
+        System.out.println();
 
+        System.out.println("Задача 3\n********");
+        triangles();
 
-//        3) Дан двухмерный массив размерностью 4 на 4, необходимо нарисовать четыре треугольника вида
+        System.out.println("\nЗадача 4\n********");
+        int number = -65;
+        analyzeNumber(number);
 
-//        a)                  b)
-//              *        *
-//            * *        * *
-//          * * *        * * *
-//        * * * *        * * * *
-//
-//        c)                  d)
-//        * * * *        * * * *
-//          * * *        * * *
-//            * *        * *
-//              *        *
+        System.out.println("\nЗадача 5\n********");
+        reverseArray();
 
+        System.out.println("\nЗадача 6\n********");
+        maxArrayElement();
 
-//        System.out.println("\nЗадача 4\n********");
-//        int number = -65;
-//        analyzeNumber(number);
+        System.out.println("\nЗадача 7\n********");
+        replaceArrayElement();
 
-//        System.out.println("\nЗадача 5\n********");
-//        reverseArray();
+        System.out.println("\nЗадача 8\n********");
+        replaceMaxArrayElement();
 
-//        System.out.println("\nЗадача 6\n********");
-//        maxArrayElement();
-
-//        System.out.println("\nЗадача 7\n********");
-//        replaceArrayElement();
-
-//        System.out.println("\nЗадача 8\n********");
-//        replaceMaxArrayElement();
-
-//        System.out.println("\nЗадача 9\n********");
-//        repeatingArrayElement();
+        System.out.println("\nЗадача 9\n********");
+        repeatingArrayElement();
 
         System.out.println("\nЗадача 10\n********");
         transposeMatrix();
@@ -86,6 +71,72 @@ public class Homework {
 
         }
         return result;
+    }
+
+    //  3) Дан двухмерный массив размерностью 4 на 4, необходимо нарисовать четыре треугольника вида
+
+    //        a)                 b)
+    //              *        *
+    //            * *        * *
+    //          * * *        * * *
+    //        * * * *        * * * *
+    //
+    //        c)                  d)
+    //        * * * *        * * * *
+    //          * * *        * * *
+    //            * *        * *
+    //              *        *
+
+    private static void triangles() {
+
+        System.out.println("a)");
+        String[][] triangle_a = new String[4][4];
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                if (i >= 3 - j) {
+                    System.out.print(triangle_a[i][j] = "*");
+                } else {
+                    System.out.print(" ");
+                }
+            }
+            System.out.println();
+        }
+
+
+        System.out.println("\nb)");
+        String[][] triangle_b = new String[4][];
+        for (int i = 0; i < 4; i++) {
+            triangle_b[i] = new String[i + 1];
+            for (int j = 0; j <= i; j++) {
+                triangle_b[i][j] = "*";
+                System.out.print(triangle_b[i][j]);
+            }
+            System.out.println();
+        }
+
+        System.out.println("\nc)");
+        String[][] triangle_c = new String[4][4];
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                if (i < j + 1) {
+                    System.out.print(triangle_c[i][j] = "*");
+                } else {
+                    System.out.print(" ");
+                }
+            }
+            System.out.println();
+        }
+
+        System.out.println("\nd)");
+        String[][] triangle_d = new String[4][];
+        for (int i = 0; i < 4; i++) {
+            triangle_d[i] = new String[4 - i];
+            for (int j = 0; j < 4 - i; j++) {
+                triangle_d[i][j] = "*";
+                System.out.print(triangle_d[i][j]);
+            }
+            System.out.println();
+        }
     }
 
     //  4) В переменную записываем число.
@@ -158,13 +209,13 @@ public class Homework {
         for (int i = 0; i < 20; i++) {
             mass[i] = random.nextInt(21);
         }
-        System.out.println(Arrays.toString(mass));
+        System.out.println("Было: " + Arrays.toString(mass));
         for (int i = 0; i < 20; i++) {
             if (i % 2 != 0) {
                 mass[i] = 0;
             }
         }
-        System.out.println(Arrays.toString(mass));
+        System.out.println("Стало: " + Arrays.toString(mass));
     }
 
     //  8) Найти максимальный элемент в массиве {4,5,0,23,77,0,8,9,101,2} и поменять его местами с нулевым элементом
